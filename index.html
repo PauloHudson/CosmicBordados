@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Bordados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .art-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        .art-item img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .art-item:hover {
+            transform: scale(1.05);
+        }
+        .art-title {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 700px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .modal-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cosmic Bordados</h1>
+    </header>
+    <div class="container">
+        <div class="art-item" onclick="openModal('./images/1.png', 'Arte 1')">
+            <img src="images/1.png" alt="Arte 1">
+            <div class="art-title">Arte 1</div>
+        </div>
+        <div class="art-item" onclick="openModal('./images/2.png', 'Arte 2')">
+            <img src="images/2.png" alt="Arte 2">
+            <div class="art-title">Arte 2</div>
+        </div>
+        <div class="art-item" onclick="openModal('./images3.png', 'Arte 3')">
+            <img src="images/3.png" alt="Arte 3">
+            <div class="art-title">Arte 3</div>
+        </div>
+        <div class="art-item" onclick="openModal('./images/4.png', 'Arte 4')">
+            <img src="images/4.png" alt="Arte 4">
+            <div class="art-title">Arte 4</div>
+        </div>
+        <div class="art-item" onclick="openModal('./images/5.png', 'Arte 5')">
+            <img src="images/5.png" alt="Arte 5">
+            <div class="art-title">Arte 5</div>
+        </div>
+        <div class="art-item" onclick="openModal('./images/5.png', 'Arte 6')">
+            <img src="images/5.png" alt="Arte 6">
+            <div class="art-title">Arte 6</div>
+        </div>
+        
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImg" src="" alt="Imagem Ampliada">
+            <div id="modalTitle" class="art-title"></div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(src, title) {
+            document.getElementById('modalImg').src = src;
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('myModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside the modal content
+        window.onclick = function(event) {
+            var modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
